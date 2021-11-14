@@ -7,6 +7,10 @@ npx truffle console --network development
 await web3.eth.getAccounts()
 web3.eth.defaultAccount = '0x8dCe97dbc547F704a7940202445453D3B6118Dd3';
 
+
+
+
+
 const wall = await ASCIIWall.deployed();
 
 wall.safeMint("0x8dCe97dbc547F704a7940202445453D3B6118Dd3", "#FF0000", "John", 0, 0, {value: "25000000000000000"});
@@ -47,5 +51,6 @@ wall.safeMint("0x8dCe97dbc547F704a7940202445453D3B6118Dd3", "#FFFFFF", "Line 17"
 wall.safeMint("0x8dCe97dbc547F704a7940202445453D3B6118Dd3", "#FFFFFF", "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX", 17, 0, {value: "25000000000000000"});
 
 wall.safeMint("0x8dCe97dbc547F704a7940202445453D3B6118Dd3", "#FFFFFF", "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXABC", 16, 0, {value: "25000000000000000"});
+
 
 
