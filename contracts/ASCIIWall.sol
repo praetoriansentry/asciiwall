@@ -77,15 +77,15 @@ contract ASCIIWall is ERC721, ERC721Enumerable, Pausable, Ownable {
     Counters.Counter private _tokenIdCounter;
 
     // The max number of lines that the canvas supports
-    uint public constant MAX_LINE_COUNT = 18;
+    uint256 public constant MAX_LINE_COUNT = 18;
     // The max number of characters that are supportred on each line
-    uint public constant MAX_LINE_LENGTH = 40;
+    uint256 public constant MAX_LINE_LENGTH = 40;
     // The amount of space between each line
-    uint public constant TEXT_LINE_HEIGHT = 32;
+    uint256 public constant TEXT_LINE_HEIGHT = 32;
     // The amount of space (ideally) between each character
-    uint public constant TEXT_CHARACTER_WIDTH = 16;
+    uint256 public constant TEXT_CHARACTER_WIDTH = 16;
     // The max number of tokens that can be minted
-    uint public constant MAX_TOKEN_COUNT = 1280;
+    uint256 public constant MAX_TOKEN_COUNT = 1280;
     // The cost of each minte
     uint256 public constant TOKEN_COST = 20000000000000000;
     // The address to deposit
@@ -99,8 +99,8 @@ contract ASCIIWall is ERC721, ERC721Enumerable, Pausable, Ownable {
     struct WordPlacement {
         string color;
         string message;
-        uint line;
-        uint offset;
+        uint256 line;
+        uint256 offset;
     }
 
     // The collection of word placements that have been minted
@@ -132,7 +132,7 @@ contract ASCIIWall is ERC721, ERC721Enumerable, Pausable, Ownable {
     }
 
     // basic minting function
-    function safeMint(address to, string memory hexColor, string memory message, uint line, uint offset) public payable {
+    function safeMint(address to, string memory hexColor, string memory message, uint256 line, uint256 offset) public payable {
         require(offset >= 0, "The offset must be zero or positive");
         require(line >= 0, "The line number must be zero or positive");
         require(offset + bytes(message).length <= MAX_LINE_LENGTH, "Message with offset is too long");
@@ -227,7 +227,7 @@ contract ASCIIWall is ERC721, ERC721Enumerable, Pausable, Ownable {
     }
 
     // return the encoded payload for the token
-    function tokenURI(uint tokenId) public view override(ERC721) returns (string memory) {
+    function tokenURI(uint256 tokenId) public view override(ERC721) returns (string memory) {
         require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
         bytes memory svg = bytes(renderForIndex(tokenId));
 

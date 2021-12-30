@@ -54,11 +54,15 @@ module.exports = {
       network_id: 4,
       gasPrice: 10e9,
       skipDryRun: true,
+      gasPrice: 150000000000  // 20 gwei (in wei) (default: 100 gwei)
     },
     mainnet: {
       provider: () => new HDWalletProvider({mnemonic: mnemonic, providerOrUrl: `https://eth-mainnet.alchemyapi.io/v2/${alchemyApiKeyPrd}`, addressIndex: 0}),
       network_id: 1,
       skipDryRun: true,
+      gasPrice: 109000000000,
+      maxFeePerGas: 150000000000,
+      maxPriorityFeePerGas: 2500000000
     },
     // Another network with more advanced options...
     // advanced: {

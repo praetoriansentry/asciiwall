@@ -4,10 +4,19 @@ npx truffle migrate --network development
 npx truffle console --network development
 
 
+npx truffle migrate --network rinkeby --dry-run --reset
+npx truffle migrate --network rinkeby --reset
+npx truffle run verify ASCIIWall --network rinkeby
+npx truffle migrate --network mainnet --dry-run --reset
+npx truffle migrate --network mainnet --reset
+npx truffle run verify ASCIIWall --network mainnet
+
 await web3.eth.getAccounts()
 web3.eth.defaultAccount = '0x8dCe97dbc547F704a7940202445453D3B6118Dd3';
 
 
+ 246291065110172205
+1591858091632741238
 
 
 
